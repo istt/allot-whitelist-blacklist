@@ -1,0 +1,20 @@
+
+{
+    "app": {
+        "dataFile" : {
+            "home": {
+                "title": "Data Files",
+                "createLabel": "Create a new Data File",
+                "createOrEditLabel": "Nhập Xuất Dữ liệu"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Data File {{ id }}?"
+            },
+            "detail": {
+                "title": "Data File"
+            },
+            "dataFile": "File dữ liệu",
+            "createdAt": "Tạo lúc"
+        }
+    }
+}

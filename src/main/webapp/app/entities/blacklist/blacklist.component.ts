@@ -138,6 +138,15 @@ export class BlacklistComponent implements OnInit, OnDestroy {
         this.dataFileService.exportData();
     }
 
+    saveData() {
+        this.dataFileService
+            .saveData()
+            .subscribe(
+                (res: HttpResponse<any>) => this.jhiAlertService.success('app.whitelist.save'),
+                (err: HttpErrorResponse) => this.onError(err.message)
+            );
+    }
+
     searchReset() {
         this.searchModel = {};
         this.transition();

@@ -1,10 +1,11 @@
-
-  ${AnsiColor.GREEN}      ██╗${AnsiColor.RED} ██╗   ██╗ ████████╗ ███████╗   ██████╗ ████████╗ ████████╗ ███████╗
-  ${AnsiColor.GREEN}      ██║${AnsiColor.RED} ██║   ██║ ╚══██╔══╝ ██╔═══██╗ ██╔════╝ ╚══██╔══╝ ██╔═════╝ ██╔═══██╗
-  ${AnsiColor.GREEN}      ██║${AnsiColor.RED} ████████║    ██║    ███████╔╝ ╚█████╗     ██║    ██████╗   ███████╔╝
-  ${AnsiColor.GREEN}██╗   ██║${AnsiColor.RED} ██╔═══██║    ██║    ██╔════╝   ╚═══██╗    ██║    ██╔═══╝   ██╔══██║
-  ${AnsiColor.GREEN}╚██████╔╝${AnsiColor.RED} ██║   ██║ ████████╗ ██║       ██████╔╝    ██║    ████████╗ ██║  ╚██╗
-  ${AnsiColor.GREEN} ╚═════╝ ${AnsiColor.RED} ╚═╝   ╚═╝ ╚═══════╝ ╚═╝       ╚═════╝     ╚═╝    ╚═══════╝ ╚═╝   ╚═╝
-
-${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} ::
-:: https://www.jhipster.tech ::${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_BLUE}
+                ██╗ ███████╗ ████████╗ ████████╗
+                ██║ ██╔════╝ ╚══██╔══╝ ╚══██╔══╝
+                ██║ ███████╗    ██║       ██║
+                ██║ ╚════██║    ██║       ██║
+                ██║ ███████║    ██║       ██║
+                ╚═╝ ╚══════╝    ╚═╝       ╚═╝
+${AnsiColor.RED}
+:: Allot DSP URL Management Tool 🤓  :: Running Spring Boot ${spring-boot.version} ::
+:: 2018 Information Services & Technology Transfer Co, Ltd.
+:: https://www.istt.com.vn ::${AnsiColor.DEFAULT}

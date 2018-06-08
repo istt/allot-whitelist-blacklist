@@ -4,7 +4,6 @@ import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ft.domain.Whitelist;
 import com.ft.service.WhitelistService;
-import com.ft.web.rest.errors.BadRequestAlertException;
 import com.ft.web.rest.util.HeaderUtil;
 import com.ft.web.rest.util.PaginationUtil;
 import com.ft.service.dto.DataFileDTO;
@@ -20,7 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -137,5 +136,11 @@ public class WhitelistResource {
     public ResponseEntity<byte[]> exportData() throws JsonProcessingException {
     	DataFileDTO file = whitelistService.exportData();
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(file.getDataFile()));
+    }
+
+    @PostMapping("/whitelist-export")
+    @Timed
+    public ResponseEntity<DataFileDTO> writeData() throws IOException {
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(whitelistService.writeData()));
     }
 }
