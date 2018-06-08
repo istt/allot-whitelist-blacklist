@@ -1,0 +1,22 @@
+
+{
+    "appApp": {
+        "whitelist" : {
+            "home": {
+                "title": "Whitelists",
+                "createLabel": "Create a new Whitelist",
+                "createOrEditLabel": "Create or edit a Whitelist"
+            },
+            "created": "A new Whitelist is created with identifier {{ param }}",
+            "updated": "A Whitelist is updated with identifier {{ param }}",
+            "deleted": "A Whitelist is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Whitelist {{ id }}?"
+            },
+            "detail": {
+                "title": "Whitelist"
+            },
+            "url": "Url"
+        }
+    }
+}

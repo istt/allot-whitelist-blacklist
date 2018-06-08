@@ -1,0 +1,50 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDataFileLabel" jhiTranslate="gatewayApp.dataFile.home.createOrEditLabel">Create or edit a Data File</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!dataFile.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="dataFile.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="gatewayApp.dataFile.dataFile" for="field_dataFile">Data File</label>
+            <div>
+                <div *ngIf="dataFile.dataFile" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(dataFile.dataFileContentType, dataFile.dataFile)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{dataFile.dataFileContentType}}, {{byteSize(dataFile.dataFile)}}</span>
+                    <button type="button" (click)="dataFile.dataFile=null;dataFile.dataFileContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_dataFile" (change)="setFileData($event, dataFile, 'dataFile', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="dataFile" id="field_dataFile"
+                [(ngModel)]="dataFile.dataFile" />
+            <input type="hidden" class="form-control" name="dataFileContentType" id="field_dataFileContentType"
+                [(ngModel)]="dataFile.dataFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="gatewayApp.dataFile.createdAt" for="field_createdAt">Created At</label>
+            <div class="d-flex">
+                <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" [(ngModel)]="dataFile.createdAt"
+                />
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
