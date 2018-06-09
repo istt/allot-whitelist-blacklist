@@ -1,18 +1,21 @@
 package com.ft.service;
 
+import com.ft.config.ApplicationProperties;
 import com.ft.domain.Whitelist;
 import com.ft.repository.WhitelistRepository;
 import com.ft.service.dto.DataFileDTO;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -115,6 +118,15 @@ public class WhitelistService {
 		}
 		log.debug("File content: " + rs);
 		result.setDataFile(rs.getBytes());
+		return result;
+	}
+
+	@Autowired
+	ApplicationProperties props;
+
+	public DataFileDTO writeData() throws IOException {
+		DataFileDTO result = exportData();
+		FileUtils.writeByteArrayToFile(new File(props.getWhitelistFilePath()), result.getDataFile());
 		return result;
 	}
 }

@@ -135,5 +135,5 @@
         "idexists": "Thêm mới {{ entityName }} không được trùng với định danh đã tồn tại",
         "idnull": "Invalid ID"
     },
-    "footer": "Đây là chân trang của bạn"
+    "footer": "&copy; 2018 ISTT Co. Ltd,"
 }

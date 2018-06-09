@@ -4,7 +4,6 @@ import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ft.domain.Blacklist;
 import com.ft.service.BlacklistService;
-import com.ft.web.rest.errors.BadRequestAlertException;
 import com.ft.web.rest.util.HeaderUtil;
 import com.ft.web.rest.util.PaginationUtil;
 import com.ft.service.dto.DataFileDTO;
@@ -21,6 +20,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -137,5 +138,18 @@ public class BlacklistResource {
     public ResponseEntity<byte[]> exportData() throws JsonProcessingException {
     	DataFileDTO file = blacklistService.exportData();
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(file.getDataFile()));
+    }
+
+    /**
+     * GET  /sub-msisdn/:id : get the "id" dnd.
+     *
+     * @param id the id of the dnd to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the dnd, or with status 404 (Not Found)
+     * @throws IOException
+     */
+    @PostMapping("/blacklist-export")
+    @Timed
+    public ResponseEntity<DataFileDTO> exportToFile() throws IOException {
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(blacklistService.writeData()));
     }
 }

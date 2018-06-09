@@ -127,4 +127,6 @@ jhipster:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# application:
+application:
+    blacklist-file-path: /tmp/operator_bl.url
+    whitelist-file-path: /tmp/operator_wl.url

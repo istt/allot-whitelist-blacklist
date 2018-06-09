@@ -50,9 +50,9 @@
         "messages": {
             "info": {
                 "authenticated": {
-                    "prefix": "If you want to ",
+                    "prefix": "In order to register for an account to ",
                     "link": "sign in",
-                    "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+                    "suffix": ", Please contact <a href=\"mailto:support@istt.com.vn\">support@istt.com.vn</a> for more info."
                 },
                 "register": {
                     "noaccount": "You don't have an account yet?",
@@ -138,5 +138,5 @@
         "idexists": "A new {{ entityName }} cannot already have an ID",
         "idnull": "Invalid ID"
     },
-    "footer": "This is your footer"
+    "footer": "&copy; 2018 Information Services &amp; Technology Transfer Co. Ltd,"
 }

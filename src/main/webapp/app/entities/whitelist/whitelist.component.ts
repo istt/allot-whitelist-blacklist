@@ -139,6 +139,12 @@ export class WhitelistComponent implements OnInit, OnDestroy {
         this.dataFileService.exportData();
     }
 
+    saveData() {
+        this.dataFileService
+            .saveData()
+            .subscribe(res => this.jhiAlertService.success('app.whitelist.save'), (err: HttpErrorResponse) => this.onError(err.message));
+    }
+
     searchReset() {
         this.searchModel = {};
         this.transition();

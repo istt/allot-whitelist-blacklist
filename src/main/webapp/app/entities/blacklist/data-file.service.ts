@@ -59,4 +59,8 @@ export class DataFileService {
                 saveAs(new Blob([res], { type: 'text;charset=utf-8' }), 'blacklist.' + new Date().toISOString().substr(0, 10) + '.url')
             );
     }
+
+    saveData() {
+        return this.http.post(this.resourceExportUrl, { responseType: 'text' });
+    }
 }

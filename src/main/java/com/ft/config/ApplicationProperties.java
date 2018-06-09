@@ -11,4 +11,30 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "application", ignoreUnknownFields = false)
 public class ApplicationProperties {
 
+	/**
+	 * Location of Blacklist File
+	 */
+	public String blacklistFilePath;
+
+	/**
+	 * Location of Whitelist File
+	 */
+	public String whitelistFilePath;
+
+	public String getBlacklistFilePath() {
+		return blacklistFilePath;
+	}
+
+	public void setBlacklistFilePath(String blacklistFilePath) {
+		this.blacklistFilePath = blacklistFilePath;
+	}
+
+	public String getWhitelistFilePath() {
+		return whitelistFilePath;
+	}
+
+	public void setWhitelistFilePath(String whitelistFilePath) {
+		this.whitelistFilePath = whitelistFilePath;
+	}
+
 }
