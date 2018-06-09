@@ -11,4 +11,7 @@ import org.springframework.data.jpa.repository.*;
 @Repository
 public interface WhitelistRepository extends JpaRepository<Whitelist, Long>, JpaSpecificationExecutor<Whitelist> {
 
+    @Modifying
+    @Query("delete from Whilelist W where exists (select 1 from Blacklist B where B.url=W.url)")
+    public void deleteBlacklistedUrls();
 }
