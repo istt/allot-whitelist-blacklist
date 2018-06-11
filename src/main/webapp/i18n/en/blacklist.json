@@ -10,6 +10,7 @@
             "created": "A new Blacklist is created with identifier {{ param }}",
             "updated": "A Blacklist is updated with identifier {{ param }}",
             "deleted": "A Blacklist is deleted with identifier {{ param }}",
+            "save": "System Blacklist has been saved. Please continue with reload",
             "delete": {
                 "question": "Are you sure you want to delete Blacklist {{ id }}?"
             },
