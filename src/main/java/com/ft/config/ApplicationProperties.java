@@ -14,12 +14,12 @@ public class ApplicationProperties {
 	/**
 	 * Location of Blacklist File
 	 */
-	public String blacklistFilePath;
+	private String blacklistFilePath;
 
 	/**
 	 * Location of Whitelist File
 	 */
-	public String whitelistFilePath;
+	private String whitelistFilePath;
 
 	public String getBlacklistFilePath() {
 		return blacklistFilePath;
