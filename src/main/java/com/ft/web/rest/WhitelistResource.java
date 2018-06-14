@@ -2,6 +2,7 @@ package com.ft.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.ft.config.ApplicationProperties;
 import com.ft.domain.Whitelist;
 import com.ft.service.WhitelistService;
 import com.ft.web.rest.util.HeaderUtil;
@@ -10,8 +11,11 @@ import com.ft.service.dto.DataFileDTO;
 import com.ft.service.dto.WhitelistCriteria;
 import com.ft.service.WhitelistQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +23,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -45,6 +50,9 @@ public class WhitelistResource {
         this.whitelistService = whitelistService;
         this.whitelistQueryService = whitelistQueryService;
     }
+
+    @Autowired
+    ApplicationProperties props;
 
     /**
      * POST  /whitelists : Create a new whitelist.
@@ -122,6 +130,24 @@ public class WhitelistResource {
         return ResponseEntity.accepted()
             .headers(HeaderUtil.createEntityUpdateAlert("DataFileDTO", String.valueOf(result)))
                 .body(dataFile);
+    }
+
+    /**
+     * POST  /data-files : Create a new dataFile.
+     *
+     * @param dataFile the dataFile to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new dataFile, or with status 400 (Bad Request) if the dataFile has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     * @throws IOException
+     */
+    @PutMapping("/whitelist-import")
+    @Timed
+    public ResponseEntity<DataFileDTO> importData() throws URISyntaxException, IOException {
+    	DataFileDTO dataFile = new DataFileDTO();
+    	dataFile.setTruncateData(true);
+    	dataFile.setDataFileContentType("text");
+    	dataFile.setDataFile(FileUtils.readFileToByteArray(new File(props.getWhitelistFilePath())));
+        return importData(dataFile);
     }
 
     /**

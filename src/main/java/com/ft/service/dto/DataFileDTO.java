@@ -17,6 +17,8 @@ public class DataFileDTO implements Serializable {
 
     private ZonedDateTime createdAt;
 
+    private Boolean truncateData;
+
     public String getId() {
         return id;
     }
@@ -49,7 +51,15 @@ public class DataFileDTO implements Serializable {
         this.createdAt = createdAt;
     }
 
-    @Override
+    public Boolean getTruncateData() {
+		return truncateData;
+	}
+
+	public void setTruncateData(Boolean truncateData) {
+		this.truncateData = truncateData;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -76,6 +86,7 @@ public class DataFileDTO implements Serializable {
             "id=" + getId() +
             ", dataFile='" + getDataFile() + "'" +
             ", createdAt='" + getCreatedAt() + "'" +
+            ", truncateData='" + getTruncateData() + "'" +
             "}";
     }
 }

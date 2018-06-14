@@ -14,7 +14,13 @@
                 "title": "Data File"
             },
             "dataFile": "Data File",
+            "truncateData": "Truncate Data before Import",
             "createdAt": "Created At"
         }
+    },
+    "appApp": {
+      "DataFileDTO": {
+        "updated": "Data updated"
+      }
     }
 }

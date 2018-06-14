@@ -101,6 +101,7 @@
             "import": "Nhập",
             "export": "Xuất",
             "search": "Tìm kiếm",
+            "reload": "Nạp lại",
             "reset": "Đặt lại",
             "view": "Xem"
         },

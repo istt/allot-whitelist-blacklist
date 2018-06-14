@@ -178,4 +178,17 @@ export class WhitelistComponent implements OnInit, OnDestroy {
         }
         return search;
     }
+    // Reload data from file
+    reloadData() {
+        this.dataFileService
+            .reloadData()
+            .subscribe(
+                (res: HttpResponse<any>) =>
+                    this.eventManager.broadcast({
+                        name: 'whitelistListModification',
+                        content: 'Successfully restore Whitelist from system file'
+                    }),
+                (err: HttpErrorResponse) => this.onError(err.message)
+            );
+    }
 }

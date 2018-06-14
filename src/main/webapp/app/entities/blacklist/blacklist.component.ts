@@ -180,4 +180,15 @@ export class BlacklistComponent implements OnInit, OnDestroy {
         }
         return search;
     }
+
+    // Reload data from file
+    reloadData() {
+        this.dataFileService
+            .reloadData()
+            .subscribe(
+                (res: HttpResponse<any>) =>
+                    this.eventManager.broadcast({ name: 'blacklistListModification', content: 'Successfully restore data from file' }),
+                (err: HttpErrorResponse) => this.onError(err.message)
+            );
+    }
 }

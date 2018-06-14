@@ -11,6 +11,12 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fas fa-sort"></span></th>
             <th jhiSortBy="url"><span jhiTranslate="appApp.blacklist.url">Url</span> <span class="fas fa-sort"></span></th>
             <th class="text-right"><div class="btn-group flex-btn-group-container">
+              <button class="btn btn-warning btn-sm" (click)="reloadData()">
+                <span class="fa fa-recycle"></span>
+                <span jhiTranslate="entity.action.reload">
+                Reload
+                </span>
+              </button>
               <button id="jh-create-entity" class="btn btn-primary btn-sm jh-create-entity create-blacklist" [routerLink]="['/blacklist/new']">
                   <span class="fas fa-plus"></span>
                   <span  jhiTranslate="appApp.blacklist.home.createLabel">

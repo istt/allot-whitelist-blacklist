@@ -63,4 +63,11 @@ export class DataFileService {
     saveData() {
         return this.http.post(this.resourceExportUrl, { responseType: 'text' });
     }
+
+    // Send a PUT request to import endpoint to reload data from static file.
+    reloadData() {
+        return this.http
+            .put<DataFile>(this.resourceImportUrl, null, { observe: 'response' })
+            .map((res: DataFileResponseType) => this.convertResponse(res));
+    }
 }

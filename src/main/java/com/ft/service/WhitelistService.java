@@ -87,11 +87,17 @@ public class WhitelistService {
         whitelistRepository.deleteById(id);
     }
 
- // Strip off all empty characters
+    public void truncate() {
+    	log.debug("Request to truncate Whitelist");
+    	whitelistRepository.deleteAll();
+    }
+
+    // Strip off all empty characters
     final static Pattern patt = Pattern.compile("([^\\s]+)");
 
     public int importData(DataFileDTO dataFile) {
 		int result = 0;
+		if (dataFile.getTruncateData())whitelistRepository.deleteAll();
 		Matcher m = patt.matcher(new String(dataFile.getDataFile()));
          while (m.find()) {
         	 try {

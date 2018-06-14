@@ -25,6 +25,10 @@
             <input type="hidden" class="form-control" name="dataFileContentType" id="field_dataFileContentType"
                 [(ngModel)]="dataFile.dataFileContentType" />
         </div>
+        <div class="form-group">
+          <input type="checkbox" class="form-checkbox" name="truncateData" id="truncateData" [(ngModel)]="dataFile.truncateData" />
+          <label class="form-control-label text-danger" jhiTranslate="app.dataFile.truncateData" for="field_truncateData">Truncate Data</label>
+        </div>
 
     </div>
     <div class="modal-footer">

@@ -14,7 +14,13 @@
                 "title": "Data File"
             },
             "dataFile": "File dữ liệu",
-            "createdAt": "Tạo lúc"
+            "createdAt": "Tạo lúc",
+            "truncateData": "Xoá dữ liệu cũ trước khi nhập"
         }
+    },
+    "appApp": {
+      "DataFileDTO": {
+        "updated": "Dữ liệu đã được cập nhật"
+      }
     }
 }

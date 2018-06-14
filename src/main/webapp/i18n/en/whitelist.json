@@ -11,6 +11,7 @@
             "updated": "A Whitelist is updated with identifier {{ param }}",
             "deleted": "A Whitelist is deleted with identifier {{ param }}",
             "save": "System Whitelist has been saved. Please continue with reload",
+            "reload": "System Whitelist has been restored from file.",
             "delete": {
                 "question": "Are you sure you want to delete Whitelist {{ id }}?"
             },

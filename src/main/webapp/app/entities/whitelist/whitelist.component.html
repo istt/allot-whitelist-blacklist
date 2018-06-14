@@ -12,6 +12,12 @@
             <th jhiSortBy="url"><span jhiTranslate="appApp.whitelist.url">Url</span> <span class="fas fa-sort"></span></th>
             <th class="text-right">
                 <div class="btn-group flex-btn-group-container">
+              <button class="btn btn-warning btn-sm" (click)="reloadData()">
+                <span class="fa fa-recycle"></span>
+                <span jhiTranslate="entity.action.reload">
+                Reload
+                </span>
+              </button>
               <button id="jh-create-entity" class="btn btn-primary btn-sm jh-create-entity create-whitelist" [routerLink]="['/whitelist/new']">
                   <span class="fas fa-plus"></span>
                   <span  jhiTranslate="appApp.whitelist.home.createLabel">
