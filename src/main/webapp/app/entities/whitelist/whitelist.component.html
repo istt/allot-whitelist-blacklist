@@ -13,31 +13,31 @@
             <th class="text-right">
                 <div class="btn-group flex-btn-group-container">
               <button class="btn btn-warning btn-sm" (click)="reloadData()">
-                <span class="fa fa-recycle"></span>
+                <fa-icon icon="sync" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="entity.action.reload">
                 Reload
                 </span>
               </button>
               <button id="jh-create-entity" class="btn btn-primary btn-sm jh-create-entity create-whitelist" [routerLink]="['/whitelist/new']">
-                  <span class="fas fa-plus"></span>
+                  <fa-icon icon="plus" [fixedWidth]="true"></fa-icon>
                   <span  jhiTranslate="appApp.whitelist.home.createLabel">
                   Create new Whitelist
                   </span>
               </button>
               <button class="btn btn-danger btn-sm" [routerLink]="['/', { outlets: { popup: ['whitelist-import'] } }]">
-                <span class="fa fa-upload"></span>
+                <fa-icon icon="upload" [fixedWidth]="true"></fa-icon>
                 <span  jhiTranslate="entity.action.import">
                 Import
                 </span>
               </button>
               <button class="btn btn-info btn-sm" (click)="exportData()">
-                <span class="fa fa-download"></span>
+                <fa-icon icon="download" [fixedWidth]="true"></fa-icon>
                 <span  jhiTranslate="entity.action.export">
                 Export
                 </span>
               </button>
               <button class="btn btn-success btn-sm" (click)="saveData()">
-                <span class="fa fa-save"></span>
+                <fa-icon icon="save" [fixedWidth]="true"></fa-icon>
                 <span  jhiTranslate="entity.action.save">
                 Save
                 </span>
@@ -50,10 +50,12 @@
               <th><input class="form-control" type="text" id="field_url" name="url" [(ngModel)]="searchModel.url" /></th>
               <th class="text-right"><div class="btn-group flex-btn-group-container">
                 <button type="button" class="btn btn-sm btn-info" (click)="search()">
-                  <span class="fa fa-search"></span>&nbsp;<span jhiTranslate="entity.action.search"> Search</span>
+                  <fa-icon icon="search" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="entity.action.search"> Search</span>
                 </button>
                 <button type="button" class="btn btn-sm btn-default" (click)="searchReset()">
-                  <span class="fa fa-search"></span>&nbsp;<span jhiTranslate="entity.action.reset"> Reset</span>
+                  <fa-icon icon="ban" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="entity.action.reset"> Reset</span>
                 </button>
               </div></th>
             </tr></thead>
