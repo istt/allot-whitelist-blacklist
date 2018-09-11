@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IWhitelist } from 'app/shared/model/whitelist.model';
@@ -10,11 +10,11 @@ import { IWhitelist } from 'app/shared/model/whitelist.model';
 export class WhitelistDetailComponent implements OnInit {
     whitelist: IWhitelist;
 
-    constructor(private route: ActivatedRoute) {}
+    constructor(private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
-        this.route.data.subscribe(({ whitelist }) => {
-            this.whitelist = whitelist.body ? whitelist.body : whitelist;
+        this.activatedRoute.data.subscribe(({ whitelist }) => {
+            this.whitelist = whitelist;
         });
     }
 

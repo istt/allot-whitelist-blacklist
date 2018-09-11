@@ -1,13 +1,13 @@
 import { Component, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'jhi-alert-error',
     template: `
         <div class="alerts" role="alert">
-            <div *ngFor="let alert of alerts"  [ngClass]="{\'alert.position\': true, \'toast\': alert.toast}">
+            <div *ngFor="let alert of alerts" [ngClass]="setClasses(alert)">
                 <ngb-alert *ngIf="alert && alert.type && alert.msg" [type]="alert.type" (close)="alert.close(alerts)">
                     <pre [innerHTML]="alert.msg"></pre>
                 </ngb-alert>
@@ -49,6 +49,9 @@ export class JhiAlertErrorComponent implements OnDestroy {
                         const fieldErrors = httpErrorResponse.error.fieldErrors;
                         for (i = 0; i < fieldErrors.length; i++) {
                             const fieldError = fieldErrors[i];
+                            if (['Min', 'Max', 'DecimalMin', 'DecimalMax'].includes(fieldError.message)) {
+                                fieldError.message = 'Size';
+                            }
                             // convert 'something[14].other[4].id' to 'something[].other[].id' so translations can be written to it
                             const convertedField = fieldError.field.replace(/\[\d*\]/g, '[]');
                             const fieldName = translateService.instant('appApp.' + fieldError.objectName + '.' + convertedField);
@@ -77,6 +80,13 @@ export class JhiAlertErrorComponent implements OnDestroy {
                     }
             }
         });
+    }
+
+    setClasses(alert) {
+        return {
+            toast: !!alert.toast,
+            [alert.position]: true
+        };
     }
 
     ngOnDestroy() {

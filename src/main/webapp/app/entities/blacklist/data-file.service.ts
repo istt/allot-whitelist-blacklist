@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 import { SERVER_API_URL } from '../../app.constants';
 
 import { JhiDateUtils } from 'ng-jhipster';
@@ -23,7 +24,7 @@ export class DataFileService {
         const copy = this.convert(dataFile);
         return this.http
             .post<DataFile>(this.resourceImportUrl, copy, { observe: 'response' })
-            .map((res: DataFileResponseType) => this.convertResponse(res));
+            .pipe(map((res: DataFileResponseType) => this.convertResponse(res)));
     }
 
     private convertResponse(res: DataFileResponseType): DataFileResponseType {
@@ -68,6 +69,6 @@ export class DataFileService {
     reloadData() {
         return this.http
             .put<DataFile>(this.resourceImportUrl, null, { observe: 'response' })
-            .map((res: DataFileResponseType) => this.convertResponse(res));
+            .pipe(map((res: DataFileResponseType) => this.convertResponse(res)));
     }
 }

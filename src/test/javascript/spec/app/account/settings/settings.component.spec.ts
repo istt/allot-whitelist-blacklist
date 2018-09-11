@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
+import { Observable, throwError } from 'rxjs';
 
 import { AppTestModule } from '../../../test.module';
 import { Principal, AccountService } from 'app/core';
@@ -79,7 +79,7 @@ describe('Component Tests', () => {
 
         it('should notify of error upon failed save', () => {
             // GIVEN
-            mockAuth.saveSpy.and.returnValue(Observable.throw('ERROR'));
+            mockAuth.saveSpy.and.returnValue(throwError('ERROR'));
 
             // WHEN
             comp.save();

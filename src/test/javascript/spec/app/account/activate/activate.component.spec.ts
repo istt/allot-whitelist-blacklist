@@ -1,6 +1,6 @@
 import { TestBed, async, tick, fakeAsync, inject } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of, throwError } from 'rxjs';
 
 import { AppTestModule } from '../../../test.module';
 import { MockActivatedRoute } from '../../../helpers/mock-route.service';
@@ -17,7 +17,6 @@ describe('Component Tests', () => {
                     imports: [AppTestModule],
                     declarations: [ActivateComponent],
                     providers: [
-                        ActivateService,
                         {
                             provide: ActivatedRoute,
                             useValue: new MockActivatedRoute({ key: 'ABC123' })
@@ -39,7 +38,7 @@ describe('Component Tests', () => {
             inject(
                 [ActivateService],
                 fakeAsync((service: ActivateService) => {
-                    spyOn(service, 'get').and.returnValue(Observable.of());
+                    spyOn(service, 'get').and.returnValue(of());
 
                     comp.ngOnInit();
                     tick();
@@ -54,7 +53,7 @@ describe('Component Tests', () => {
             inject(
                 [ActivateService],
                 fakeAsync((service: ActivateService) => {
-                    spyOn(service, 'get').and.returnValue(Observable.of({}));
+                    spyOn(service, 'get').and.returnValue(of({}));
 
                     comp.ngOnInit();
                     tick();
@@ -70,7 +69,7 @@ describe('Component Tests', () => {
             inject(
                 [ActivateService],
                 fakeAsync((service: ActivateService) => {
-                    spyOn(service, 'get').and.returnValue(Observable.throw('ERROR'));
+                    spyOn(service, 'get').and.returnValue(throwError('ERROR'));
 
                     comp.ngOnInit();
                     tick();

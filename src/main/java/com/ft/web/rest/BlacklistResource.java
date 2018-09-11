@@ -70,7 +70,7 @@ public class BlacklistResource {
         log.debug("REST request to save Blacklist : {}", blacklist);
         Blacklist result = blacklistService.save(blacklist);
         return ResponseEntity.created(new URI("/api/blacklists/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, null))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 

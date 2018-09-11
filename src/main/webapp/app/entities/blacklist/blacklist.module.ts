@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppSharedModule } from 'app/shared';
 import {
-    BlacklistService,
     BlacklistComponent,
     BlacklistDetailComponent,
     BlacklistUpdateComponent,
@@ -11,8 +10,8 @@ import {
     BlacklistDeleteDialogComponent,
     blacklistRoute,
     blacklistPopupRoute,
+    BlacklistService,
     BlacklistResolve,
-    BlacklistResolvePagingParams,
     // DataFile Import support
     DataFileService,
     DataFilePopupService,
@@ -41,7 +40,7 @@ const ENTITY_STATES = [...blacklistRoute, ...blacklistPopupRoute];
         DataFileDialogComponent,
         DataFilePopupComponent
     ],
-    providers: [BlacklistService, BlacklistResolve, BlacklistResolvePagingParams, DataFileService, DataFilePopupService],
+    providers: [BlacklistService, BlacklistResolve, DataFileService, DataFilePopupService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppBlacklistModule {}

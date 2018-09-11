@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
@@ -9,7 +9,7 @@ import { IBlacklist } from 'app/shared/model/blacklist.model';
 type EntityResponseType = HttpResponse<IBlacklist>;
 type EntityArrayResponseType = HttpResponse<IBlacklist[]>;
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class BlacklistService {
     private resourceUrl = SERVER_API_URL + 'api/blacklists';
 

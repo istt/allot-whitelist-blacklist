@@ -68,7 +68,7 @@ public class WhitelistResource {
         log.debug("REST request to save Whitelist : {}", whitelist);
         Whitelist result = whitelistService.save(whitelist);
         return ResponseEntity.created(new URI("/api/whitelists/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, null))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 

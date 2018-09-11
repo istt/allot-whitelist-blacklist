@@ -53,6 +53,9 @@ public class UserDTO {
 
     private Set<String> authorities;
 
+    @Size(min = 4, max = 50)
+    private String password;
+
     public UserDTO() {
         // Empty constructor needed for Jackson.
     }
@@ -177,6 +180,14 @@ public class UserDTO {
 
     public void setAuthorities(Set<String> authorities) {
         this.authorities = authorities;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

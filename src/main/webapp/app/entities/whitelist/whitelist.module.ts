@@ -3,16 +3,15 @@ import { RouterModule } from '@angular/router';
 
 import { AppSharedModule } from 'app/shared';
 import {
-    WhitelistService,
     WhitelistComponent,
     WhitelistDetailComponent,
     WhitelistUpdateComponent,
     WhitelistDeletePopupComponent,
     WhitelistDeleteDialogComponent,
     whitelistRoute,
+    WhitelistService,
     whitelistPopupRoute,
     WhitelistResolve,
-    WhitelistResolvePagingParams,
     // DataFile Import support
     DataFileService,
     DataFilePopupService,
@@ -41,7 +40,7 @@ const ENTITY_STATES = [...whitelistRoute, ...whitelistPopupRoute];
         DataFileDialogComponent,
         DataFilePopupComponent
     ],
-    providers: [WhitelistService, WhitelistResolve, WhitelistResolvePagingParams, DataFileService, DataFilePopupService],
+    providers: [WhitelistService, WhitelistResolve, DataFileService, DataFilePopupService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppWhitelistModule {}
