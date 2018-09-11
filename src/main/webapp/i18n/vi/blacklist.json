@@ -1,0 +1,22 @@
+
+{
+    "appApp": {
+        "blacklist" : {
+            "home": {
+                "title": "Blacklists",
+                "createLabel": "Thêm mới một Blacklist",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Blacklist"
+            },
+            "created": "Một Blacklist mới được tạo với định danh {{ param }}",
+            "updated": "Một Blacklist cập nhật với định danh {{ param }}",
+            "deleted": "Một Blacklist đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Blacklist {{ id }}?"
+            },
+            "detail": {
+                "title": "Blacklist"
+            },
+            "url": "Url"
+        }
+    }
+}

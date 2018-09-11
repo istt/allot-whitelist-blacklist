@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "512"
+        }
+    ],
+    "changelogDate": "20180608030846",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "whitelist",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}
