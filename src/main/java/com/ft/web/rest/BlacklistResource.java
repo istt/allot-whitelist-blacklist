@@ -58,7 +58,7 @@ public class BlacklistResource {
         log.debug("REST request to save Blacklist : {}", blacklist);
         if (blacklist.getId() != null) {
             throw new BadRequestAlertException("A new blacklist cannot already have an ID", ENTITY_NAME, "idexists");
-        }        
+        }
         Blacklist result = blacklistService.save(blacklist);
         return ResponseEntity.created(new URI("/api/blacklists/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -80,7 +80,7 @@ public class BlacklistResource {
         log.debug("REST request to update Blacklist : {}", blacklist);
         if (blacklist.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }        
+        }
         Blacklist result = blacklistService.save(blacklist);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, blacklist.getId().toString()))

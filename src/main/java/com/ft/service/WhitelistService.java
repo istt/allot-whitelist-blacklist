@@ -34,8 +34,7 @@ public class WhitelistService {
      * @return the persisted entity
      */
     public Whitelist save(Whitelist whitelist) {
-        log.debug("Request to save Whitelist : {}", whitelist);
-        return whitelistRepository.save(whitelist);
+        log.debug("Request to save Whitelist : {}", whitelist);        return whitelistRepository.save(whitelist);
     }
 
     /**

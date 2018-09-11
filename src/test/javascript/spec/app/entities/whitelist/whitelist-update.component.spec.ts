@@ -1,7 +1,7 @@
 /* tslint:disable max-line-length */
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
 
 import { AppTestModule } from '../../../test.module';
 import { WhitelistUpdateComponent } from 'app/entities/whitelist/whitelist-update.component';
@@ -17,8 +17,7 @@ describe('Component Tests', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [AppTestModule],
-                declarations: [WhitelistUpdateComponent],
-                providers: [WhitelistService]
+                declarations: [WhitelistUpdateComponent]
             })
                 .overrideTemplate(WhitelistUpdateComponent, '')
                 .compileComponents();
@@ -34,7 +33,7 @@ describe('Component Tests', () => {
                 fakeAsync(() => {
                     // GIVEN
                     const entity = new Whitelist(123);
-                    spyOn(service, 'update').and.returnValue(Observable.of(new HttpResponse({ body: entity })));
+                    spyOn(service, 'update').and.returnValue(of(new HttpResponse({ body: entity })));
                     comp.whitelist = entity;
                     // WHEN
                     comp.save();
@@ -51,7 +50,7 @@ describe('Component Tests', () => {
                 fakeAsync(() => {
                     // GIVEN
                     const entity = new Whitelist();
-                    spyOn(service, 'create').and.returnValue(Observable.of(new HttpResponse({ body: entity })));
+                    spyOn(service, 'create').and.returnValue(of(new HttpResponse({ body: entity })));
                     comp.whitelist = entity;
                     // WHEN
                     comp.save();

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IBlacklist } from 'app/shared/model/blacklist.model';
@@ -10,11 +10,11 @@ import { IBlacklist } from 'app/shared/model/blacklist.model';
 export class BlacklistDetailComponent implements OnInit {
     blacklist: IBlacklist;
 
-    constructor(private route: ActivatedRoute) {}
+    constructor(private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
-        this.route.data.subscribe(({ blacklist }) => {
-            this.blacklist = blacklist.body ? blacklist.body : blacklist;
+        this.activatedRoute.data.subscribe(({ blacklist }) => {
+            this.blacklist = blacklist;
         });
     }
 

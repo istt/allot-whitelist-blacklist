@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { IBlacklist } from 'app/shared/model/blacklist.model';
 import { BlacklistService } from './blacklist.service';
@@ -14,12 +14,12 @@ export class BlacklistUpdateComponent implements OnInit {
     private _blacklist: IBlacklist;
     isSaving: boolean;
 
-    constructor(private blacklistService: BlacklistService, private route: ActivatedRoute) {}
+    constructor(private blacklistService: BlacklistService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
-        this.route.data.subscribe(({ blacklist }) => {
-            this.blacklist = blacklist.body ? blacklist.body : blacklist;
+        this.activatedRoute.data.subscribe(({ blacklist }) => {
+            this.blacklist = blacklist;
         });
     }
 

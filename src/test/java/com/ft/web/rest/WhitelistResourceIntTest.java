@@ -12,7 +12,6 @@ import com.ft.service.WhitelistQueryService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.ArrayList;
+
 
 import static com.ft.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -48,9 +47,7 @@ public class WhitelistResourceIntTest {
 
     @Autowired
     private WhitelistRepository whitelistRepository;
-
     
-
     @Autowired
     private WhitelistService whitelistService;
 
@@ -170,7 +167,6 @@ public class WhitelistResourceIntTest {
             .andExpect(jsonPath("$.[*].url").value(hasItem(DEFAULT_URL.toString())));
     }
     
-
     @Test
     @Transactional
     public void getWhitelist() throws Exception {
@@ -245,6 +241,7 @@ public class WhitelistResourceIntTest {
             .andExpect(jsonPath("$").isEmpty());
     }
 
+
     @Test
     @Transactional
     public void getNonExistingWhitelist() throws Exception {
@@ -287,7 +284,7 @@ public class WhitelistResourceIntTest {
 
         // Create the Whitelist
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restWhitelistMockMvc.perform(put("/api/whitelists")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(whitelist)))

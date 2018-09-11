@@ -12,7 +12,6 @@ import com.ft.service.BlacklistQueryService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.ArrayList;
+
 
 import static com.ft.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -48,9 +47,7 @@ public class BlacklistResourceIntTest {
 
     @Autowired
     private BlacklistRepository blacklistRepository;
-
     
-
     @Autowired
     private BlacklistService blacklistService;
 
@@ -170,7 +167,6 @@ public class BlacklistResourceIntTest {
             .andExpect(jsonPath("$.[*].url").value(hasItem(DEFAULT_URL.toString())));
     }
     
-
     @Test
     @Transactional
     public void getBlacklist() throws Exception {
@@ -245,6 +241,7 @@ public class BlacklistResourceIntTest {
             .andExpect(jsonPath("$").isEmpty());
     }
 
+
     @Test
     @Transactional
     public void getNonExistingBlacklist() throws Exception {
@@ -287,7 +284,7 @@ public class BlacklistResourceIntTest {
 
         // Create the Blacklist
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restBlacklistMockMvc.perform(put("/api/blacklists")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(blacklist)))

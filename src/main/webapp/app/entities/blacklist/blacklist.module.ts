@@ -3,16 +3,13 @@ import { RouterModule } from '@angular/router';
 
 import { AppSharedModule } from 'app/shared';
 import {
-    BlacklistService,
     BlacklistComponent,
     BlacklistDetailComponent,
     BlacklistUpdateComponent,
     BlacklistDeletePopupComponent,
     BlacklistDeleteDialogComponent,
     blacklistRoute,
-    blacklistPopupRoute,
-    BlacklistResolve,
-    BlacklistResolvePagingParams
+    blacklistPopupRoute
 } from './';
 
 const ENTITY_STATES = [...blacklistRoute, ...blacklistPopupRoute];
@@ -27,7 +24,6 @@ const ENTITY_STATES = [...blacklistRoute, ...blacklistPopupRoute];
         BlacklistDeletePopupComponent
     ],
     entryComponents: [BlacklistComponent, BlacklistUpdateComponent, BlacklistDeleteDialogComponent, BlacklistDeletePopupComponent],
-    providers: [BlacklistService, BlacklistResolve, BlacklistResolvePagingParams],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppBlacklistModule {}

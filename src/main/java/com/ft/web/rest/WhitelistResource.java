@@ -58,7 +58,7 @@ public class WhitelistResource {
         log.debug("REST request to save Whitelist : {}", whitelist);
         if (whitelist.getId() != null) {
             throw new BadRequestAlertException("A new whitelist cannot already have an ID", ENTITY_NAME, "idexists");
-        }        
+        }
         Whitelist result = whitelistService.save(whitelist);
         return ResponseEntity.created(new URI("/api/whitelists/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -80,7 +80,7 @@ public class WhitelistResource {
         log.debug("REST request to update Whitelist : {}", whitelist);
         if (whitelist.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }        
+        }
         Whitelist result = whitelistService.save(whitelist);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, whitelist.getId().toString()))

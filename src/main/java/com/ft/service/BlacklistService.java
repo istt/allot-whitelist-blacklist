@@ -34,8 +34,7 @@ public class BlacklistService {
      * @return the persisted entity
      */
     public Blacklist save(Blacklist blacklist) {
-        log.debug("Request to save Blacklist : {}", blacklist);
-        return blacklistRepository.save(blacklist);
+        log.debug("Request to save Blacklist : {}", blacklist);        return blacklistRepository.save(blacklist);
     }
 
     /**

@@ -38,13 +38,13 @@ export class BlacklistDeleteDialogComponent {
 export class BlacklistDeletePopupComponent implements OnInit, OnDestroy {
     private ngbModalRef: NgbModalRef;
 
-    constructor(private route: ActivatedRoute, private router: Router, private modalService: NgbModal) {}
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private modalService: NgbModal) {}
 
     ngOnInit() {
-        this.route.data.subscribe(({ blacklist }) => {
+        this.activatedRoute.data.subscribe(({ blacklist }) => {
             setTimeout(() => {
                 this.ngbModalRef = this.modalService.open(BlacklistDeleteDialogComponent as Component, { size: 'lg', backdrop: 'static' });
-                this.ngbModalRef.componentInstance.blacklist = blacklist.body;
+                this.ngbModalRef.componentInstance.blacklist = blacklist;
                 this.ngbModalRef.result.then(
                     result => {
                         this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });

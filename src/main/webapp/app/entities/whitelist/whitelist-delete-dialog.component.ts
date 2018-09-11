@@ -38,13 +38,13 @@ export class WhitelistDeleteDialogComponent {
 export class WhitelistDeletePopupComponent implements OnInit, OnDestroy {
     private ngbModalRef: NgbModalRef;
 
-    constructor(private route: ActivatedRoute, private router: Router, private modalService: NgbModal) {}
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private modalService: NgbModal) {}
 
     ngOnInit() {
-        this.route.data.subscribe(({ whitelist }) => {
+        this.activatedRoute.data.subscribe(({ whitelist }) => {
             setTimeout(() => {
                 this.ngbModalRef = this.modalService.open(WhitelistDeleteDialogComponent as Component, { size: 'lg', backdrop: 'static' });
-                this.ngbModalRef.componentInstance.whitelist = whitelist.body;
+                this.ngbModalRef.componentInstance.whitelist = whitelist;
                 this.ngbModalRef.result.then(
                     result => {
                         this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });

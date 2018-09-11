@@ -1,11 +1,12 @@
 package com.ft.repository;
 
 import com.ft.domain.Blacklist;
-import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.stereotype.Repository;
+
 
 /**
- * Spring Data JPA repository for the Blacklist entity.
+ * Spring Data  repository for the Blacklist entity.
  */
 @SuppressWarnings("unused")
 @Repository

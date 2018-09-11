@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { IWhitelist } from 'app/shared/model/whitelist.model';
 import { WhitelistService } from './whitelist.service';
@@ -14,12 +14,12 @@ export class WhitelistUpdateComponent implements OnInit {
     private _whitelist: IWhitelist;
     isSaving: boolean;
 
-    constructor(private whitelistService: WhitelistService, private route: ActivatedRoute) {}
+    constructor(private whitelistService: WhitelistService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
-        this.route.data.subscribe(({ whitelist }) => {
-            this.whitelist = whitelist.body ? whitelist.body : whitelist;
+        this.activatedRoute.data.subscribe(({ whitelist }) => {
+            this.whitelist = whitelist;
         });
     }
 

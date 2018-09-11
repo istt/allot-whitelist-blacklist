@@ -13,8 +13,7 @@ describe('Service Tests', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [HttpClientTestingModule],
-                providers: [BlacklistService]
+                imports: [HttpClientTestingModule]
             });
             injector = getTestBed();
             service = injector.get(BlacklistService);

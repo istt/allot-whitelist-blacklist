@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
@@ -9,7 +9,7 @@ import { IWhitelist } from 'app/shared/model/whitelist.model';
 type EntityResponseType = HttpResponse<IWhitelist>;
 type EntityArrayResponseType = HttpResponse<IWhitelist[]>;
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class WhitelistService {
     private resourceUrl = SERVER_API_URL + 'api/whitelists';
 

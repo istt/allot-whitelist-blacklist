@@ -3,16 +3,13 @@ import { RouterModule } from '@angular/router';
 
 import { AppSharedModule } from 'app/shared';
 import {
-    WhitelistService,
     WhitelistComponent,
     WhitelistDetailComponent,
     WhitelistUpdateComponent,
     WhitelistDeletePopupComponent,
     WhitelistDeleteDialogComponent,
     whitelistRoute,
-    whitelistPopupRoute,
-    WhitelistResolve,
-    WhitelistResolvePagingParams
+    whitelistPopupRoute
 } from './';
 
 const ENTITY_STATES = [...whitelistRoute, ...whitelistPopupRoute];
@@ -27,7 +24,6 @@ const ENTITY_STATES = [...whitelistRoute, ...whitelistPopupRoute];
         WhitelistDeletePopupComponent
     ],
     entryComponents: [WhitelistComponent, WhitelistUpdateComponent, WhitelistDeleteDialogComponent, WhitelistDeletePopupComponent],
-    providers: [WhitelistService, WhitelistResolve, WhitelistResolvePagingParams],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppWhitelistModule {}
